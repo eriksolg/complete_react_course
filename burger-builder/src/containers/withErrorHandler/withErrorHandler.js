@@ -1,8 +1,8 @@
-import axios from '../../axios-orders';
 import React, { Fragment, Component } from 'react';
 
-import Modal from '../../components/UI/Modal/Modal';
+import axios from '../../axios-orders';
 
+import Modal from '../../components/UI/Modal/Modal';
 
 const withErroHandler = (WrappedComponent) => {
     return class extends Component {
@@ -34,11 +34,15 @@ const withErroHandler = (WrappedComponent) => {
         render() {
             return (
                 <Fragment>
-                    <Modal show={this.state.error}
-                    modalClosed={this.errorConfirmedHandler}>
+
+                    <Modal
+                        show={this.state.error}
+                        modalClosed={this.errorConfirmedHandler} >
                         {this.state.error ? this.state.error.message : null}
                     </Modal>
+
                     <WrappedComponent {...this.props} />
+                    
                 </Fragment>
             );
         }

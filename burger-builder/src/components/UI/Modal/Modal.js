@@ -1,15 +1,18 @@
 import React, { Component, Fragment } from 'react';
 
 import classes from './Modal.module.css';
+
 import Backdrop from '../Backdrop/Backdrop';
 
 class Modal extends Component {
-
-
     render() {
         return (
             <Fragment>
-                <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
+
+                <Backdrop
+                    show={this.props.show}
+                    clicked={this.props.modalClosed} />
+
                 <div
                     className={classes.Modal}
                     style={{
@@ -18,6 +21,7 @@ class Modal extends Component {
                     }}>
                     {this.props.children}
                 </div>
+
             </Fragment>
         )
     }
